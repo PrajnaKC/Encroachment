@@ -99,7 +99,7 @@ Future improvements could include:
     ```
 
 ## Usage
-### Use the GUI for Classification
+### Use the GUI for classification
 
 To use the graphical interface for classifying satellite images:
 
@@ -108,7 +108,7 @@ To use the graphical interface for classifying satellite images:
     python classifierApp.py
     ```
 
-2. **Select a Model**: Click on the "Select Model" button and choose the trained model file (e.g., `.keras` or `.h5`).
+2. **Select a Model**: Click on the "Select Model" button and choose the trained model file (`.keras`).
 
 3. **Select an Image**: Once a model is loaded, click on the "Select Image" button and choose the satellite image you want to classify.
 
