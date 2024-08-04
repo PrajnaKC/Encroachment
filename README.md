@@ -99,21 +99,21 @@ Future improvements could include:
     ```
 
 ## Usage
+### Use the GUI for Classification
 
-1. **Train the model**:
+To use the graphical interface for classifying satellite images:
+
+1. Run the GUI application:
     ```bash
-    python train.py
+    python classifierApp.py
     ```
 
-2. **Evaluate the model**:
-    ```bash
-    python evaluate.py
-    ```
+2. **Select a Model**: Click on the "Select Model" button and choose the trained model file (e.g., `.keras` or `.h5`).
 
-3. **Make predictions**:
-    ```bash
-    python predict.py --image_path path/to/image.jpg
-    ```
+3. **Select an Image**: Once a model is loaded, click on the "Select Image" button and choose the satellite image you want to classify.
+
+4. **View Results**: The application will display the original image and the colorized classification map. You can select a different image to classify or load a new model to use for classification.
+
 
 ## Contact
 
