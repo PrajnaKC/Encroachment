@@ -54,7 +54,7 @@ The EuroSAT dataset, which comprises 27,000 labeled images of various land use a
 
 A custom CNN architecture named SpectrumNet was designed, consisting of multiple convolutional and spectral blocks to capture multi-scale features from the input images. The architecture leverages Batch Normalization and ReLU activation to stabilize and accelerate training.
 
-<img src = "Resources/architecture_cnn.png" width="100"/>
+<p align="center"><img src = "Resources/architecture_cnn.png" width="100"/></p>
 
 ### Model training
 
@@ -78,21 +78,26 @@ Three different configurations were tested to determine the best model. The best
 The best models from each training configuration were compared, and the confusion matrices were analyzed to understand the model's performance across different classes. The training and validation loss and accuracy curves were plotted to visualize the learning process.
 
 <p align="center">
-  <img src="Models/Version1/ConfusionMatrices/confusionMatrix70Epochs.png" width="100"/>
-  <img src="Models/Version2/ConfusionMatrices/confusionMatrix50Epochs.png" width="100"/>
-  <img src="Models/Version3/ConfusionMatrices/confusionMatrix50Epochs.png" width="100"/>
+  <img src="Models/Version1/ConfusionMatrices/confusionMatrix70Epochs.png" width="500"/>
+  <img src="Models/Version2/ConfusionMatrices/confusionMatrix50Epochs.png" width="500"/>
+  <img src="Models/Version3/ConfusionMatrices/confusionMatrix50Epochs.png" width="500"/>
 </p>
 
 <p align="center">
-  <img src="Models/Version1/Curves/train_70Epochs.png" width="100"/>
-  <img src="Models/Version2/Curves/train_50Epochs.png" width="100"/>
-  <img src="Models/Version3/Curves/train_50Epochs.png" width="100"/>
+  <img src="Models/Version1/Curves/train_70Epochs.png" width="500"/>
+  <img src="Models/Version2/Curves/train_50Epochs.png" width="500"/>
+  <img src="Models/Version3/Curves/train_50Epochs.png" width="500"/>
 </p>
 
+### Predictions
 <p align="center">
-  <img src="Resources/Results/Result1.png" width="100"/>
-  <img src="Resources/Results/Result2.png" width="100"/>
-  <img src="Resources/Results/Result3.png" width="100"/>
+  <img src="Resources/Results/Result1.png" width="700"/>
+</p>
+<p aling="center">
+  <img src="Resources/Results/Result2.png" width="700"/>
+</p>
+<p align="center">
+  <img src="Resources/Results/Result3.png" width="700"/>
 </p>
 
 
