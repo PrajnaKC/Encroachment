@@ -4,7 +4,7 @@
 
 This project demonstrates the classification of satellite images using a custom Convolutional Neural Network (CNN). The model is designed to classify images from the EuroSAT dataset into ten distinct classes.
 
-<img src = "Resources/Satellite Image Classification.png" width="400"/>
+<img src = "Resources/Satellite Image Classification.png" width="800"/>
 
 ## Table of contents
 1. [Introduction](#introduction)
