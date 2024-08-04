@@ -4,6 +4,8 @@
 
 This project demonstrates the classification of satellite images using a custom Convolutional Neural Network (CNN). The model is designed to classify images from the EuroSAT dataset into ten distinct classes.
 
+<img src = "Resources/Satellite Image Classification.png" width="800"/>
+
 ## Table of contents
 1. [Introduction](#introduction)
 2. [Dataset](#dataset)
@@ -51,6 +53,8 @@ The EuroSAT dataset, which comprises 27,000 labeled images of various land use a
 ### Model building
 
 A custom CNN architecture named SpectrumNet was designed, consisting of multiple convolutional and spectral blocks to capture multi-scale features from the input images. The architecture leverages Batch Normalization and ReLU activation to stabilize and accelerate training.
+
+<img src = "Resources/architecture_cnn.png" width="100"/>
 
 ### Model training
 
