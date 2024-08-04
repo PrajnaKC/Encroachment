@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project demonstrates the classification of satellite images using a custom Convolutional Neural Network (CNN) architecture named SpectrumNet. The model is designed to classify images from the EuroSAT dataset into ten distinct land use and land cover classes.
+This project demonstrates the classification of satellite images using a custom Convolutional Neural Network (CNN). The model is designed to classify images from the EuroSAT dataset into ten distinct classes.
 
 ## Table of contents
 1. [Introduction](#introduction)
