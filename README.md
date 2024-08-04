@@ -90,6 +90,10 @@ Three different configurations were tested to determine the best model. The best
 
 ### Predictions
 <p align="center">
+   <img src = "Resources/labels.png"/>
+</p>
+
+<p align="center">
   <img src="Resources/Results/Result1.png" width="700"/>
 </p>
 <p align="center">
