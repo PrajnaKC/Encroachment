@@ -4,7 +4,7 @@
 
 This project demonstrates the classification of satellite images using a custom Convolutional Neural Network (CNN). The model is designed to classify images from the EuroSAT dataset into ten distinct classes.
 
-<img src = "Resources/Satellite Image Classification.png" width="800"/>
+<p align="center"><img src = "Resources/Satellite Image Classification.png" width="800"/></p>
 
 ## Table of contents
 1. [Introduction](#introduction)
@@ -76,6 +76,25 @@ Three different configurations were tested to determine the best model. The best
 ## Results
 
 The best models from each training configuration were compared, and the confusion matrices were analyzed to understand the model's performance across different classes. The training and validation loss and accuracy curves were plotted to visualize the learning process.
+
+<p align="center">
+  <img src="Models/Version1/ConfusionMatrices/confusionMatrix70Epochs.png" width="100"/>
+  <img src="Models/Version2/ConfusionMatrices/confusionMatrix50Epochs.png" width="100"/>
+  <img src="Models/Version3/ConfusionMatrices/confusionMatrix50Epochs.png" width="100"/>
+</p>
+
+<p align="center">
+  <img src="Models/Version1/Curves/train_70Epochs.png" width="100"/>
+  <img src="Models/Version2/Curves/train_50Epochs.png" width="100"/>
+  <img src="Models/Version3/Curves/train_50Epochs.png" width="100"/>
+</p>
+
+<p align="center">
+  <img src="Resources/Results/Result1.png" width="100"/>
+  <img src="Resources/Results/Result2.png" width="100"/>
+  <img src="Resources/Results/Result3.png" width="100"/>
+</p>
+
 
 ## Conclusion
 
