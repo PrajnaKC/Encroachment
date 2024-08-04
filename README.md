@@ -141,6 +141,10 @@ To use the graphical interface for classifying satellite images:
 
 4. **View Results**: The application will display the original image and the colorized classification map. You can select a different image to classify or load a new model to use for classification.
 
+<p align="center">
+   <img src = "Resources/Interfaz.png" width="800"/>
+   <img src = "Resources/InterfazResult.png" width="800"/>
+</p>
 
 ## Contact
 
