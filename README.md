@@ -54,6 +54,8 @@ The EuroSAT dataset, which comprises 27,000 labeled images of various land use a
 
 A custom CNN architecture named SpectrumNet was designed, consisting of multiple convolutional and spectral blocks to capture multi-scale features from the input images. The architecture leverages Batch Normalization and ReLU activation to stabilize and accelerate training.
 
+<img src = "Resources/architecture_cnn.png" width="100"/>
+
 ### Model training
 
 Three versions of the model were trained with different configurations to identify the optimal training parameters. The models were trained using:
