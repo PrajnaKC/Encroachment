@@ -44,7 +44,7 @@ The EuroSAT dataset, which comprises 27,000 labeled images of various land use a
 
 1. **Normalization**: Pixel values are scaled to the range [0, 1].
 2. **Tensor conversion**: Images are converted to tensors.
-3. **One-Hot cncoding**: Labels are transformed into one-hot encoded vectors.
+3. **One-Hot encoding**: Labels are transformed into one-hot encoded vectors.
 4. **Dataset splitting**: The dataset is divided into training, validation, and test sets.
 5. **Data augmentation**: Techniques such as random flips and brightness adjustments are applied to enhance model robustness.
 
