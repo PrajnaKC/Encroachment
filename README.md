@@ -1,21 +1,21 @@
-# Satellite Image Classification using a Custom CNN
+# Satellite Image Classification using a CNN
 
 ## Overview
 
 This project demonstrates the classification of satellite images using a custom Convolutional Neural Network (CNN) architecture named SpectrumNet. The model is designed to classify images from the EuroSAT dataset into ten distinct land use and land cover classes.
 
-## Table of Contents
+## Table of contents
 1. [Introduction](#introduction)
 2. [Dataset](#dataset)
 3. [Methodology](#methodology)
-   - [Data Preprocessing](#data-preprocessing)
-   - [Model Building](#model-building)
-   - [Model Training](#model-training)
-   - [Model Evaluation](#model-evaluation)
-   - [Optimizing Model Performance](#optimizing-model-performance)
+   - [Data preprocessing](#data-preprocessing)
+   - [Model building](#model-building)
+   - [Model training](#model-training)
+   - [Model evaluation](#model-evaluation)
+   - [Optimizing model performance](#optimizing-model-performance)
 4. [Results](#results)
 5. [Conclusion](#conclusion)
-6. [Future Work](#future-work)
+6. [Future work](#future-work)
 7. [Installation](#installation)
 8. [Usage](#usage)
 9. [Contact](#contact)
@@ -43,29 +43,29 @@ The EuroSAT dataset, which comprises 27,000 labeled images of various land use a
 ### Data Preprocessing
 
 1. **Normalization**: Pixel values are scaled to the range [0, 1].
-2. **Tensor Conversion**: Images are converted to tensors.
-3. **One-Hot Encoding**: Labels are transformed into one-hot encoded vectors.
-4. **Dataset Splitting**: The dataset is divided into training, validation, and test sets.
-5. **Data Augmentation**: Techniques such as random flips and brightness adjustments are applied to enhance model robustness.
+2. **Tensor conversion**: Images are converted to tensors.
+3. **One-Hot cncoding**: Labels are transformed into one-hot encoded vectors.
+4. **Dataset splitting**: The dataset is divided into training, validation, and test sets.
+5. **Data augmentation**: Techniques such as random flips and brightness adjustments are applied to enhance model robustness.
 
-### Model Building
+### Model building
 
 A custom CNN architecture named SpectrumNet was designed, consisting of multiple convolutional and spectral blocks to capture multi-scale features from the input images. The architecture leverages Batch Normalization and ReLU activation to stabilize and accelerate training.
 
-### Model Training
+### Model training
 
 Three versions of the model were trained with different configurations to identify the optimal training parameters. The models were trained using:
 - **Optimizer**: Stochastic Gradient Descent (SGD) with momentum
-- **Loss Function**: Categorical cross-entropy
-- **Class Weights Adjustment**: To handle class imbalance
-- **Learning Rate Scheduler**: Step decay function to adjust the learning rate
-- **Early Stopping**: To prevent overfitting
+- **Loss function**: Categorical cross-entropy
+- **Class weights adjustment**: To handle class imbalance
+- **Learning rate scheduler**: Step decay function to adjust the learning rate
+- **Early stopping**: To prevent overfitting
 
-### Model Evaluation
+### Model evaluation
 
 The model was evaluated on the test dataset using metrics such as accuracy and confusion matrices to assess its performance and generalization ability.
 
-### Optimizing Model Performance
+### Optimizing model performance
 
 Three different configurations were tested to determine the best model. The best model achieved a classification accuracy of 96% on the test dataset.
 
@@ -77,7 +77,7 @@ The best models from each training configuration were compared, and the confusio
 
 This project demonstrates the effectiveness of CNNs in satellite image classification. The custom SpectrumNet architecture achieved high accuracy, highlighting the importance of meticulous data preprocessing, robust training strategies, and detailed performance evaluation.
 
-## Future Work
+## Future work
 
 Future improvements could include:
 - Using higher resolution images to capture more detailed features
