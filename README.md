@@ -43,7 +43,7 @@ The EuroSAT dataset, which comprises 27,000 labeled images of various land use a
 <p align="center">
    <img src = "Resources/Classes/AnnualCrop.jpg"/>
    <img src = "Resources/Classes/Forest.jpg"/>
-   <img src = "Resources/Classes/HerbeceousVegatation.jpg"/>
+   <img src = "Resources/Classes/HerbaceousVegatation.jpg"/>
    <img src = "Resources/Classes/Highway.jpg"/>
    <img src = "Resources/Classes/Industrial.jpg"/>
    <img src = "Resources/Classes/Pasture.jpg"/>
