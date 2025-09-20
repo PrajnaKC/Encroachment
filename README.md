@@ -1,6 +1,22 @@
-# Satellite Image Classification using a CNN
+<br/>
+<p align="center">
+  <h1 align="center">Satellite Image Classification</h1>
 
-## Overview
+  <p align="center">
+    Using a CNN
+    <br />
+  </p>
+</p>
+<!-- TECHNOLOGY BADGES -->
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
+  <img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white" alt="Keras">
+  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn">
+  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
+  <img src="https://img.shields.io/badge/Matplotlib-3776AB?style=for-the-badge&logo=matplotlib&logoColor=white" alt="Matplotlib">
+  <img src="https://img.shields.io/badge/Tkinter-white?style=for-the-badge&logo=python&logoColor=blue" alt="Tkinter">
+</p>
 
 This project demonstrates the classification of satellite images using a custom Convolutional Neural Network (CNN). The model is designed to classify images from the EuroSAT dataset into ten distinct classes.
 
