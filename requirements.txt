@@ -1,8 +1,11 @@
-tk
+# Essential packages only - pre-built wheels to avoid build issues
+Flask
+Werkzeug
 Pillow
-tensorflow
 numpy
-pandas
-matplotlib
-scikit-learn
-opencv-python
+requests
+# Skip TensorFlow for now to get the app running
+# opencv-python-headless
+# pandas
+# matplotlib 
+# scikit-learn

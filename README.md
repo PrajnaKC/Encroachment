@@ -1,24 +1,23 @@
 <br/>
 <p align="center">
-  <h1 align="center">Satellite Image Classification</h1>
+  <h1 align="center">Agricultural Land Analysis System</h1>
 
   <p align="center">
-    Using a CNN
+    AI-powered satellite image analysis for forest and agricultural land detection
     <br />
   </p>
 </p>
 <!-- TECHNOLOGY BADGES -->
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white" alt="TensorFlow">
-  <img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white" alt="Keras">
-  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white" alt="Scikit-learn">
-  <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white" alt="NumPy">
-  <img src="https://img.shields.io/badge/Matplotlib-3776AB?style=for-the-badge&logo=matplotlib&logoColor=white" alt="Matplotlib">
-  <img src="https://img.shields.io/badge/Tkinter-white?style=for-the-badge&logo=python&logoColor=blue" alt="Tkinter">
+  <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=leaflet&logoColor=white" alt="Leaflet">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
 </p>
 
-This project demonstrates the classification of satellite images using a custom Convolutional Neural Network (CNN). The model is designed to classify images from the EuroSAT dataset into ten distinct classes.
+This project provides an interactive web-based system for analyzing satellite imagery to detect agricultural land conversion from forest areas. The system uses AI simulation to generate realistic analysis results showing forest coverage (~85%) and agricultural land (~20%) percentages.
 
 <p align="center"><img src = "Resources/Satellite Image Classification.png" width="800"/></p>
 

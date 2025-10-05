@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Image Land Use Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDciPsvdxOy-OnesSpduDg_g-mojbC-NGI&libraries=geometry&loading=async"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <i class="fas fa-map-marked-alt"></i>
+                <h1>Interactive Land Use Map Analyzer</h1>
+                <p>Click on any area in the map to analyze its land use distribution</p>
+            </div>
+        </header>
+
+        <!-- Map Section -->
+        <section class="map-section">
+            <div class="map-container">
+                <h3><i class="fas fa-map"></i> Interactive GeoJSON Land Use Map</h3>
+                <div class="map-wrapper">
+                    <div id="leafletMap"></div>
+                    
+                    <!-- Floating Interactive Controls -->
+                    <div class="floating-controls">
+                        <div class="control-panel">
+                            <button class="control-btn" onclick="fitMapToBounds()" title="Fit to boundaries">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                            <button class="control-btn" onclick="toggleGeoJSONLayer()" title="Toggle boundaries">
+                                <i class="fas fa-layer-group"></i>
+                            </button>
+                            <button class="control-btn" onclick="toggleSatelliteView()" title="Toggle satellite view">
+                                <i class="fas fa-satellite"></i>
+                            </button>
+                            <button class="control-btn" onclick="showMapInfo()" title="Map information">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                            <button class="control-btn" onclick="resetMapView()" title="Reset view">
+                                <i class="fas fa-home"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="search-panel">
+                            <input type="text" id="areaSearch" placeholder="🔍 Search areas..." class="search-input">
+                            <div id="searchResults" class="search-results"></div>
+                        </div>
+                        
+                        <div class="info-panel" id="infoPanel">
+                            <div class="info-header">
+                                <h4><i class="fas fa-map"></i> Map Statistics</h4>
+                                <button class="close-info" onclick="closeInfoPanel()">×</button>
+                            </div>
+                            <div class="info-content">
+                                <div class="stat-item">
+                                    <span class="stat-label">Total Areas:</span>
+                                    <span class="stat-value" id="totalAreas">-</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Analyzed:</span>
+                                    <span class="stat-value" id="analyzedAreas">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Map Zoom:</span>
+                                    <span class="stat-value" id="currentZoom">8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-controls">
+                        <button class="map-btn" onclick="fitMapToBounds()">
+                            <i class="fas fa-expand"></i> Fit to Data
+                        </button>
+                        <button class="map-btn" onclick="toggleGeoJSONLayer()">
+                            <i class="fas fa-layer-group"></i> Toggle Boundaries
+                        </button>
+                    </div>
+                </div>
+                <div class="map-instructions">
+                    <div class="instruction-card">
+                        <i class="fas fa-mouse-pointer"></i>
+                        <h4>How to Use</h4>
+                        <p>Click on any highlighted area on the map to get instant land use analysis for that region. The system will automatically analyze the area and show detailed results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 Satellite Image Land Use Analyzer. Powered by Deep Learning.</p>
+        </footer>
+    </div>
+
+    <!-- Polygon Analysis Result Modal -->
+    <div id="polygonModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Polygon Analysis Results</h3>
+                <span class="close-modal" onclick="closePolygonModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="polygon-info">
+                    <h4>Area Information</h4>
+                    <div id="polygonDetails" class="details-grid">
+                        <!-- Polygon details will be populated here -->
+                    </div>
+                </div>
+                <div class="analysis-results">
+                    <h4>Land Use Analysis</h4>
+                    <div class="modal-categories">
+                        <div class="modal-category agricultural">
+                            <span class="category-label">Agricultural</span>
+                            <span class="category-value" id="modalAgricultural">0%</span>
+                        </div>
+                        <div class="modal-category forest">
+                            <span class="category-label">Forest</span>
+                            <span class="category-value" id="modalForest">0%</span>
+                        </div>
+                        <div class="modal-category water">
+                            <span class="category-label">Water</span>
+                            <span class="category-value" id="modalWater">0%</span>
+                        </div>
+                        <div class="modal-category infrastructure">
+                            <span class="category-label">Infrastructure</span>
+                            <span class="category-value" id="modalInfrastructure">0%</span>
+                        </div>
+                    </div>
+                    <div class="detailed-breakdown" id="modalDetailedResults">
+                        <!-- Detailed results will be populated here -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closePolygonModal()">Close</button>
+                <button class="btn btn-primary" onclick="downloadPolygonReport()">Download Report</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
