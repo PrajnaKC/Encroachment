@@ -40,29 +40,9 @@ body {
     flex-direction: column;
 }
 
-/* Header Styles */
+/* Header Styles - Hidden */
 .header {
-    display: none; /* Hide header completely for maximum map space */
-}
-
-.header-content i {
-    font-size: 1.2rem;
-    color: var(--secondary-color);
-    margin-bottom: 2px;
-}
-
-.header h1 {
-    font-size: 1.2rem;
-    margin-bottom: 2px;
-    background: var(--gradient-bg);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.header p {
-    font-size: 0.8rem;
-    color: var(--dark-gray);
+    display: none;
 }
 
 /* Upload Section */

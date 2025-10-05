@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Essential packages only - pre-built wheels to avoid build issues
 Flask
 Werkzeug
@@ -10,3 +11,21 @@ opencv-python
 # pandas
 # matplotlib 
 # scikit-learn
+=======
+# Essential packages - core dependencies for the application
+Flask==2.2.2
+Werkzeug==2.2.2
+Jinja2==3.1.6
+MarkupSafe==2.1.6
+Pillow==10.2.0
+numpy==1.26.4
+requests==2.31.0
+opencv-python-headless==4.8.0.74
+
+# Optional ML dependencies (uncomment if needed)
+# tensorflow-cpu==2.11.0
+# keras==2.11.0
+# matplotlib==3.10.6
+# pandas
+# scikit-learn
+>>>>>>> b33d5ac3 (Initial Commit)

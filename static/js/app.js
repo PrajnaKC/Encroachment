@@ -31,38 +31,61 @@ class LandUseAnalyzer {
             this.map.remove();
         }
 
-        // Initialize the map with smooth zooming optimizations
-        this.map = L.map('leafletMap', {
-            preferCanvas: false, // Use SVG for smoother rendering
-            zoomAnimation: true, // Enable smooth zoom animation
-            fadeAnimation: true, // Enable fade animation for tiles
-            markerZoomAnimation: true, // Enable marker animation
-            zoomAnimationThreshold: 4, // Smooth animation threshold
-            wheelPxPerZoomLevel: 60 // Smoother wheel zoom
-        }).setView([26.4, 74.8], 8);
+        try {
+            // Initialize the map with smooth zooming optimizations
+            this.map = L.map('leafletMap', {
+                preferCanvas: false, // Use SVG for smoother rendering
+                zoomAnimation: true, // Enable smooth zoom animation
+                fadeAnimation: true, // Enable fade animation for tiles
+                markerZoomAnimation: true, // Enable marker animation
+                zoomAnimationThreshold: 4, // Smooth animation threshold
+                wheelPxPerZoomLevel: 60 // Smoother wheel zoom
+            }).setView([26.4, 74.8], 8);
 
-        // Add Google Maps satellite tile layer with optimized loading
-        const tileLayer = L.tileLayer('https://maps.googleapis.com/maps/vt/lyrs=s&x={x}&y={y}&z={z}&key=AIzaSyDciPsvdxOy-OnesSpduDg_g-mojbC-NGI', {
-            attribution: '&copy; <a href="https://www.google.com/maps">Google Maps</a>',
-            maxZoom: 20,
-            updateWhenIdle: false, // Update tiles continuously for smooth experience
-            updateWhenZooming: false, // Don't update during zoom for smoother animation
-            keepBuffer: 4, // Keep more tiles for smoother panning
-            tileSize: 256, // Standard tile size
-            zoomOffset: 0,
-            detectRetina: true, // Better quality on high-DPI displays
-            crossOrigin: true
-        });
+            // Add Google Maps satellite tile layer with optimized loading
+            const tileLayer = L.tileLayer('https://maps.googleapis.com/maps/vt/lyrs=s&x={x}&y={y}&z={z}&key=AIzaSyDciPsvdxOy-OnesSpduDg_g-mojbC-NGI', {
+                attribution: '&copy; <a href="https://www.google.com/maps">Google Maps</a>',
+                maxZoom: 20,
+                updateWhenIdle: false, // Update tiles continuously for smooth experience
+                updateWhenZooming: false, // Don't update during zoom for smoother animation
+                keepBuffer: 4, // Keep more tiles for smoother panning
+                tileSize: 256, // Standard tile size
+                zoomOffset: 0,
+                detectRetina: true, // Better quality on high-DPI displays
+                crossOrigin: true
+            });
 
-        // Add tile loading event handlers for error handling
-        tileLayer.on('tileerror', (error) => {
-            console.warn('Tile loading error:', error);
-        });
+            // Add tile loading event handlers for error handling
+            tileLayer.on('tileerror', (error) => {
+                console.warn('Tile loading error:', error);
+            });
 
-        tileLayer.addTo(this.map);
+            tileLayer.addTo(this.map);
 
-        // Load and display GeoJSON
-        this.loadGeoJSON();
+            // Load and display GeoJSON
+            this.loadGeoJSON();
+        } catch (error) {
+            console.error('Map initialization failed:', error);
+            this.showMapError('Failed to initialize map. Please refresh the page.');
+        }
+    }
+
+    showMapError(message) {
+        const mapContainer = document.getElementById('leafletMap');
+        if (mapContainer) {
+            mapContainer.innerHTML = `
+                <div style="display: flex; align-items: center; justify-content: center; height: 100%; background: #f8f9fa; color: #6c757d;">
+                    <div style="text-align: center; padding: 20px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 48px; margin-bottom: 15px; color: #ffc107;"></i>
+                        <h3>Map Error</h3>
+                        <p>${message}</p>
+                        <button onclick="location.reload()" style="background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                            Refresh Page
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
     }
 
     loadGeoJSON() {
@@ -198,15 +221,12 @@ class LandUseAnalyzer {
     }
 
     analyzePolygon(feature) {
-        console.log('Analyzing polygon:', feature.properties.Name);
-        
         // Show loading modal
         const modal = document.getElementById('polygonModal');
         const modalTitle = document.getElementById('modalTitle');
         const modalBody = document.querySelector('.modal-body');
         
         if (!modal || !modalTitle || !modalBody) {
-            console.error('Modal elements not found');
             alert('Analysis interface not available. Please refresh the page.');
             return;
         }
@@ -307,9 +327,6 @@ class LandUseAnalyzer {
     }
 
     displayPolygonResults(data) {
-        console.log('displayPolygonResults called with data:', data);
-        console.log('Agricultural analysis data:', data.agricultural_analysis);
-        
         // Update modal title
         document.getElementById('modalTitle').textContent = `Analysis: ${data.polygon_name}`;
 
@@ -318,10 +335,6 @@ class LandUseAnalyzer {
         const areaInfo = data.results.area_info;
         const analysisMethod = data.analysis_method || 'Unknown'; // Extract analysis method
         const agriculturalAnalysis = data.agricultural_analysis || {}; // Get agricultural analysis
-        
-        console.log('Area info:', areaInfo);
-        console.log('Analysis method:', analysisMethod);
-        console.log('Agricultural analysis:', agriculturalAnalysis);
         
         polygonDetails.innerHTML = `
             <div class="detail-item">
@@ -621,8 +634,38 @@ function zoomToArea(areaName) {
 
 // Toggle satellite view
 function toggleSatelliteView() {
-    // This could switch between different tile layers
-    alert('🛰️ Satellite view toggle - Feature coming soon!');
+    // Toggle between satellite and default map view
+    if (window.analyzer && window.analyzer.map) {
+        const currentTiles = window.analyzer.map._layers;
+        const tileLayerKeys = Object.keys(currentTiles);
+        
+        if (tileLayerKeys.length > 0) {
+            // Create notification instead of alert
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #3498db;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                z-index: 10001;
+                font-family: 'Segoe UI', sans-serif;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            `;
+            notification.textContent = '🛰️ Satellite view is active';
+            document.body.appendChild(notification);
+            
+            // Remove notification after 2 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 2000);
+        }
+    }
 }
 
 // Show map information
