@@ -4,6 +4,7 @@ Werkzeug
 Pillow
 numpy
 requests
+opencv-python
 # Skip TensorFlow for now to get the app running
 # opencv-python-headless
 # pandas
